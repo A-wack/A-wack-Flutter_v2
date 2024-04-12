@@ -1,4 +1,4 @@
-import 'package:a_wack_flutter_v2/presentation/on_boarding_screen/screen/on_boarding_screen.dart';
+import 'package:a_wack_flutter_v2/presentation/on_boarding/screen/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

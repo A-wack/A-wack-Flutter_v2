@@ -1,6 +1,7 @@
-import 'package:a_wack_flutter_v2/presentation/on_boarding_screen/widget/on_boarding_bottom_widget.dart';
-import 'package:a_wack_flutter_v2/presentation/on_boarding_screen/widget/on_boarding_top_wiget.dart';
 import 'package:flutter/material.dart';
+
+import '../widget/on_boarding_bottom_widget.dart';
+import '../widget/on_boarding_top_wiget.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
