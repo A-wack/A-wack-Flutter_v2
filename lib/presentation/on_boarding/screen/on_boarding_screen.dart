@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widget/on_boarding_bottom_widget.dart';
 import '../widget/on_boarding_top_wiget.dart';
@@ -15,7 +16,7 @@ class OnBoardingScreen extends StatelessWidget {
             padding: const EdgeInsets.only(top: 120, left: 48),
             child: SizedBox(
               width: MediaQuery.of(context).size.width - 96,
-              height: 700,
+              height: 700.h,
               child: const Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

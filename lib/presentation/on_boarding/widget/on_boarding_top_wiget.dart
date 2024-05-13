@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/image_storage.dart';
-import '../../../core/image_widget.dart';
+import '../../../core/component/image_storage.dart';
+import '../../../core/component/image_widget.dart';
 
 class OnBoardingTopWidget extends StatelessWidget {
   const OnBoardingTopWidget({super.key});
@@ -17,36 +18,36 @@ class OnBoardingTopWidget extends StatelessWidget {
             ImageWidget(
               image: ImageStorage.awackLogo,
               imageType: ImageType.png,
-              imageWidth: 24,
-              imageHeight: 24,
+              imageWidth: 24.w,
+              imageHeight: 24.h,
             ),
-            const SizedBox(width: 8),
-            const Text(
+            SizedBox(width: 8.w),
+            Text(
               'AWACK',
               style: TextStyle(
                 fontFamily: "Pretendard",
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
           ],
         ),
-        const SizedBox(height: 36),
-        const Text(
+        SizedBox(height: 36.h),
+        Text(
           '반가워요!',
           style: TextStyle(
             fontFamily: "Pretendard",
-            fontSize: 44,
+            fontSize: 44.sp,
             fontWeight: FontWeight.w700,
           ),
         ),
-        const SizedBox(height: 12),
-        const Text(
+        SizedBox(height: 12.h),
+        Text(
           'AWAKE로 신청한 노래를 들으며\n아침에 기분 좋게 일어나봐요!',
           style: TextStyle(
             fontFamily: "Pretendard",
-            fontSize: 18,
-            color: Color(0xFF838383),
+            fontSize: 18.sp,
+            color: const Color(0xFF838383),
             fontWeight: FontWeight.w500,
           ),
         ),

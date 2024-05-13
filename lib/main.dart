@@ -1,6 +1,7 @@
 import 'package:a_wack_flutter_v2/presentation/on_boarding/screen/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -17,9 +18,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: OnBoardingScreen(),
+    return ScreenUtilInit(
+      designSize: const Size(430, 932),
+      builder: (context, child) {
+        return const MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: OnBoardingScreen(),
+        );
+      },
     );
   }
 }
