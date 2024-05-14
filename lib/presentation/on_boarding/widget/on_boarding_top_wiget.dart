@@ -1,3 +1,4 @@
+import 'package:a_wack_flutter_v2/core/component/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,34 +23,22 @@ class OnBoardingTopWidget extends StatelessWidget {
               imageHeight: 24.h,
             ),
             SizedBox(width: 8.w),
-            Text(
-              'AWACK',
-              style: TextStyle(
-                fontFamily: "Pretendard",
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w500,
-              ),
+            TextWidget.medium(
+              text: 'AWACK',
+              fontSize: 16.sp,
             ),
           ],
         ),
         SizedBox(height: 36.h),
-        Text(
-          '반가워요!',
-          style: TextStyle(
-            fontFamily: "Pretendard",
-            fontSize: 44.sp,
-            fontWeight: FontWeight.w700,
-          ),
+        TextWidget.bold(
+          text: '반가워요!',
+          fontSize: 44.sp,
         ),
         SizedBox(height: 12.h),
-        Text(
-          'AWAKE로 신청한 노래를 들으며\n아침에 기분 좋게 일어나봐요!',
-          style: TextStyle(
-            fontFamily: "Pretendard",
-            fontSize: 18.sp,
-            color: const Color(0xFF838383),
-            fontWeight: FontWeight.w500,
-          ),
+        TextWidget.medium(
+          text: 'AWAKE로 신청한 노래를 들으며\n아침에 기분 좋게 일어나봐요!',
+          color: const Color(0xFF838383),
+          fontSize: 18.sp,
         ),
       ],
     );

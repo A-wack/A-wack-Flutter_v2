@@ -1,3 +1,4 @@
+import 'package:a_wack_flutter_v2/core/component/text_widget.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/sign_in/screen/sign_in_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,14 +23,10 @@ class OnBoardingBottomWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(1000),
             ),
             child: Center(
-              child: Text(
-                '시작하기',
-                style: TextStyle(
-                  color: Color(0xFF1E1E1E),
-                  fontSize: 18.sp,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w600,
-                ),
+              child: TextWidget.semiBold(
+                text: "시작하기",
+                color: const Color(0xFF1E1E1E),
+                fontSize: 18.sp,
               ),
             ),
           ),
@@ -46,26 +43,17 @@ class OnBoardingBottomWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                '계정이 있으신가요?',
-                style: TextStyle(
-                  color: const Color(0xFF919191),
-                  fontSize: 18.sp,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                ),
+              TextWidget.medium(
+                text: '계정이 있으신가요?',
+                color: const Color(0xFF919191),
+                fontSize: 18.sp,
               ),
               SizedBox(width: 8.w),
-              Text(
-                '로그인하기',
-                style: TextStyle(
-                  color: const Color(0xFF919191),
-                  fontSize: 18.sp,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  decoration: TextDecoration.underline,
-                ),
-              )
+              TextWidget.medium(
+                text: '로그인하기',
+                color: const Color(0xFF919191),
+                fontSize: 18.sp,
+              ),
             ],
           ),
         )
