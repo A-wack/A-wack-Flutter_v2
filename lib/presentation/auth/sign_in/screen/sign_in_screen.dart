@@ -1,3 +1,6 @@
+import 'package:a_wack_flutter_v2/core/component/a_wack_text_field.dart';
+import 'package:a_wack_flutter_v2/core/component/text_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/sign_in/widget/sign_in_app_bar_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,17 +14,37 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   late TextEditingController _emailController;
+  late TextEditingController _passwordController;
+
+  final FocusNode emailNode = FocusNode();
+  final FocusNode passwordNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
     _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+
+    emailNode.addListener(() {
+      if (emailNode.hasFocus) {
+        passwordNode.unfocus();
+        setState(() {});
+      }
+    });
+
+    passwordNode.addListener(() {
+      if (passwordNode.hasFocus) {
+        emailNode.unfocus();
+        setState(() {});
+      }
+    });
   }
 
   @override
   void dispose() {
     super.dispose();
     _emailController.dispose();
+    _passwordController.dispose();
   }
 
   @override
@@ -35,48 +58,26 @@ class _SignInScreenState extends State<SignInScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                '로그인',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 32.sp,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w700,
-                ),
+              TextWidget.bold(
+                text: '로그인',
+                fontSize: 32.sp,
               ),
               SizedBox(height: 36.h),
-              Text(
-                '이메일',
-                style: TextStyle(
-                  color: const Color(0xFF222222),
-                  fontSize: 16.sp,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w600,
-                  height: 0,
-                ),
-              ),
-              TextField(
+              AWackTextField(
                 controller: _emailController,
-                cursorColor: const Color(0xFFFFA500),
-                cursorHeight: 24.h,
-                decoration: const InputDecoration(
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFFC0C0C0)),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                ),
-                style: TextStyle(
-                  height: 1.h,
-                  decorationThickness: 0,
-                  color: const Color(0xFF1E1E1E),
-                  fontSize: 24.sp,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                ),
+                title: "이메일",
+                focusNode: emailNode,
+                anotherNodes: [passwordNode],
+                isError: false,
               ),
               SizedBox(height: 24.h),
+              AWackTextField(
+                controller: _passwordController,
+                title: "비밀번호",
+                focusNode: passwordNode,
+                anotherNodes: [emailNode],
+                isError: true,
+              ),
             ],
           ),
         ),
