@@ -6,16 +6,25 @@ class AWackTextField extends StatefulWidget {
   final String title;
   final TextEditingController controller;
   final FocusNode focusNode;
-  final List<FocusNode> anotherNodes;
-  final bool isError;
+  final bool isError, isInvisible;
+  final String errorText;
+  final TextInputType keyboardType;
+  final Widget? suffixIcon;
+  final GestureTapCallback? onTap;
+  final TapRegionCallback? onTapOutside;
 
   const AWackTextField({
     super.key,
     required this.controller,
     required this.title,
     required this.focusNode,
-    required this.anotherNodes,
-    required this.isError,
+    this.isError = false,
+    this.keyboardType = TextInputType.text,
+    this.isInvisible = false,
+    this.suffixIcon,
+    this.onTap,
+    this.onTapOutside,
+    this.errorText = "",
   });
 
   @override
@@ -38,33 +47,34 @@ class _AWackTextFieldState extends State<AWackTextField> {
         ),
         TextField(
           focusNode: widget.focusNode,
-          onTap: () {
-            setState(() {});
-          },
-          onTapOutside: (event) {
-            widget.focusNode.unfocus();
-            setState(() {});
-          },
+          onTap: widget.onTap ?? () => setState(() {}),
+          onTapOutside: widget.onTapOutside ??
+              (event) {
+                widget.focusNode.unfocus();
+                setState(() {});
+              },
           controller: widget.controller,
           cursorColor: const Color(0xFFFFA500),
           cursorHeight: 24.h,
           decoration: InputDecoration(
+            suffixIcon: widget.suffixIcon,
             enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: Color(0xFFC0C0C0),
               ),
             ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: widget.isError
-                  ? const BorderSide()
-                  : const BorderSide(color: Colors.black),
+            focusedBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.black),
+            ),
+            focusedErrorBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFFFC5555)),
             ),
             errorBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: Color(0xFFFC5555)),
             ),
             error: widget.isError
                 ? TextWidget.medium(
-                    text: "이메일 또는 비밀번호를 확인해주세요",
+                    text: widget.errorText,
                     color: const Color(0xFFFC5555),
                     fontSize: 14.sp,
                   )
@@ -78,6 +88,10 @@ class _AWackTextFieldState extends State<AWackTextField> {
             fontFamily: 'Pretendard',
             fontWeight: FontWeight.w500,
           ),
+          keyboardType: widget.keyboardType,
+          obscureText: widget.isInvisible ? true : false,
+          enableSuggestions: widget.isInvisible ? false : true,
+          autocorrect: widget.isInvisible ? false : true,
         ),
       ],
     );
