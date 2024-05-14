@@ -21,9 +21,16 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(430, 932),
       builder: (context, child) {
-        return const MaterialApp(
+        return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: OnBoardingScreen(),
+          theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white,
+            bottomSheetTheme: const BottomSheetThemeData(
+              backgroundColor: Colors.white,
+              surfaceTintColor: Colors.white,
+            ),
+          ),
+          home: const OnBoardingScreen(),
         );
       },
     );
