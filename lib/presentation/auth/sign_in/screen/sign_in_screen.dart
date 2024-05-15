@@ -1,9 +1,10 @@
-import 'package:a_wack_flutter_v2/core/component/a_wack_text_field.dart';
+import 'package:a_wack_flutter_v2/presentation/auth/widget/auth_text_field.dart';
 import 'package:a_wack_flutter_v2/core/component/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:a_wack_flutter_v2/presentation/auth/sign_in/widget/sign_in_app_bar_widget.dart';
+import 'package:a_wack_flutter_v2/presentation/auth/widget/auth_app_bar_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/component/gap.dart';
 import '../../../../core/component/image_storage.dart';
 import '../../../../core/component/image_widget.dart';
 
@@ -63,7 +64,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
     return SafeArea(
       child: Scaffold(
-        appBar: SignInAppBarWidget(appbarHeight: 54.h),
+        appBar: AuthAppBarWidget(appbarHeight: 54.h),
         body: Padding(
           padding: EdgeInsets.fromLTRB(24.w, 36.h, 24.w, 0.h),
           child: SingleChildScrollView(
@@ -75,16 +76,16 @@ class _SignInScreenState extends State<SignInScreen> {
                   text: '로그인',
                   fontSize: 32.sp,
                 ),
-                SizedBox(height: 36.h),
-                AWackTextField(
+                Gap(height: 36.h),
+                AuthTextField(
                   controller: _emailController,
                   title: "이메일",
                   focusNode: emailNode,
                   keyboardType: TextInputType.emailAddress,
                   isError: isError,
                 ),
-                SizedBox(height: 24.h),
-                AWackTextField(
+                Gap(height: 24.h),
+                AuthTextField(
                   controller: _passwordController,
                   title: "비밀번호",
                   focusNode: passwordNode,

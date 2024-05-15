@@ -9,25 +9,27 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 120, left: 48),
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width - 96,
-              height: 700.h,
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  OnBoardingTopWidget(),
-                  OnBoardingBottomWidget(),
-                ],
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 120, left: 48),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width - 96,
+                height: 700.h,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    OnBoardingTopWidget(),
+                    OnBoardingBottomWidget(),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

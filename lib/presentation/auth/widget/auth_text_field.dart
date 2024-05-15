@@ -2,7 +2,7 @@ import 'package:a_wack_flutter_v2/core/component/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AWackTextField extends StatefulWidget {
+class AuthTextField extends StatefulWidget {
   final String title;
   final TextEditingController controller;
   final FocusNode focusNode;
@@ -13,7 +13,7 @@ class AWackTextField extends StatefulWidget {
   final GestureTapCallback? onTap;
   final TapRegionCallback? onTapOutside;
 
-  const AWackTextField({
+  const AuthTextField({
     super.key,
     required this.controller,
     required this.title,
@@ -28,10 +28,10 @@ class AWackTextField extends StatefulWidget {
   });
 
   @override
-  State<AWackTextField> createState() => _AWackTextFieldState();
+  State<AuthTextField> createState() => _AWackTextFieldState();
 }
 
-class _AWackTextFieldState extends State<AWackTextField> {
+class _AWackTextFieldState extends State<AuthTextField> {
   @override
   Widget build(BuildContext context) {
     return Column(

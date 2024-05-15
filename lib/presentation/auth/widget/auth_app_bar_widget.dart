@@ -2,13 +2,13 @@ import 'package:a_wack_flutter_v2/core/component/image_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/component/image_widget.dart';
+import '../../../core/component/gap.dart';
+import '../../../core/component/image_widget.dart';
 
-class SignInAppBarWidget extends StatelessWidget
-    implements PreferredSizeWidget {
+class AuthAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final double appbarHeight;
 
-  const SignInAppBarWidget({super.key, required this.appbarHeight});
+  const AuthAppBarWidget({super.key, required this.appbarHeight});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class SignInAppBarWidget extends StatelessWidget
               ),
             ),
           ),
-          SizedBox(width: 24.w),
+          Gap(width: 24.w),
         ],
       ),
     );
