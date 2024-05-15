@@ -1,3 +1,5 @@
+import 'package:a_wack_flutter_v2/core/component/route_animation.dart';
+import 'package:a_wack_flutter_v2/presentation/auth/sign_up/screen/sign-up_check_email_screen.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/sign_up/widget/sign_up_button.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/sign_up/widget/sign_up_top_component.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/widget/auth_app_bar_widget.dart';
@@ -28,16 +30,21 @@ class _SignUpScreenState extends State<SignUpSendEmailScreen> {
     _emailController.dispose();
   }
 
-  void sendEmail(String text) {
-    if (text.contains("@dsm.hs.kr")) {
-      return;
-    }
-
-    setState(() => isError = true);
-  }
-
   @override
   Widget build(BuildContext context) {
+    void sendEmail(String text) {
+      if (text.contains("@dsm.hs.kr")) {
+        setState(() => isError = false);
+        Navigator.push(
+          context,
+          RouteAnimation(const SignUpCheckEmailScreen()).slideRightToLeft(),
+        );
+        return;
+      }
+
+      setState(() => isError = true);
+    }
+
     return SafeArea(
       child: Scaffold(
         appBar: AuthAppBarWidget(appbarHeight: 54.h),
