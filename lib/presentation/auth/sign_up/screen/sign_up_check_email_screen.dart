@@ -1,4 +1,6 @@
+import 'package:a_wack_flutter_v2/core/component/route_animation.dart';
 import 'package:a_wack_flutter_v2/core/component/text_widget.dart';
+import 'package:a_wack_flutter_v2/presentation/auth/sign_up/screen/sign_up_setting_password_screen.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/sign_up/widget/sign_up_button.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/sign_up/widget/sign_up_top_component.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/widget/auth_app_bar_widget.dart';
@@ -35,6 +37,11 @@ class _SignUpCheckEmailScreenState extends State<SignUpCheckEmailScreen> {
       // todo 여기도 더미 수정 필요
       if (text == "0000") {
         setState(() => isError = false);
+        Navigator.push(
+          context,
+          RouteAnimation(const SignUpSettingPasswordScreen())
+              .slideRightToLeft(),
+        );
         return;
       }
 
@@ -51,7 +58,7 @@ class _SignUpCheckEmailScreenState extends State<SignUpCheckEmailScreen> {
               SignUpTopComponent(
                 title: "회원가입",
                 subTitle: "이메일로 인증번호를 전송했어요",
-                statusBarWidth: 95.5.w,
+                statusBarWidth: 191.w,
               ),
               AuthTextField(
                 controller: _passNumberController,
