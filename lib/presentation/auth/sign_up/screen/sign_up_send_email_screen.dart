@@ -1,7 +1,5 @@
-import 'package:a_wack_flutter_v2/core/component/gap.dart';
-import 'package:a_wack_flutter_v2/core/component/text_widget.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/sign_up/widget/sign_up_button.dart';
-import 'package:a_wack_flutter_v2/presentation/auth/sign_up/widget/sign_up_status_bar.dart';
+import 'package:a_wack_flutter_v2/presentation/auth/sign_up/widget/sign_up_top_component.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/widget/auth_app_bar_widget.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/widget/auth_text_field.dart';
 import 'package:flutter/material.dart';
@@ -48,17 +46,11 @@ class _SignUpScreenState extends State<SignUpSendEmailScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Gap(height: 24.h),
-              SignUpStatusBar(width: 95.5.w),
-              Gap(height: 36.h),
-              TextWidget.bold(text: "회원가입", fontSize: 32.sp),
-              Gap(height: 12.h),
-              TextWidget.medium(
-                text: "인증을 위해 DSM 이메일을 입력해주세요",
-                fontSize: 18.sp,
-                color: const Color(0xFF838383),
+              SignUpTopComponent(
+                title: "회원가입",
+                subTitle: "인증을 위해 DSM 이메일을 입력해주세요",
+                statusBarWidth: 95.5.w,
               ),
-              Gap(height: 48.h),
               AuthTextField(
                 controller: _emailController,
                 title: "이메일",
