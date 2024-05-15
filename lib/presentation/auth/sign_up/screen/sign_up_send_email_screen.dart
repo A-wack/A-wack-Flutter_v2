@@ -1,5 +1,5 @@
 import 'package:a_wack_flutter_v2/core/component/route_animation.dart';
-import 'package:a_wack_flutter_v2/presentation/auth/sign_up/screen/sign-up_check_email_screen.dart';
+import 'package:a_wack_flutter_v2/presentation/auth/sign_up/screen/sign_up_check_email_screen.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/sign_up/widget/sign_up_button.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/sign_up/widget/sign_up_top_component.dart';
 import 'package:a_wack_flutter_v2/presentation/auth/widget/auth_app_bar_widget.dart';
